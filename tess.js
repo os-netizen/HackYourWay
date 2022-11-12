@@ -1,17 +1,17 @@
-const Tesseract =require("tesseract.js");
+const Tesseract = require("tesseract.js");
 
 const worker = Tesseract.createWorker({
   logger: (m) => console.log(m),
 });
 
-async function captchaToText(){
+async function captchaToText(imageLink){
   await worker.load();
   await worker.loadLanguage("eng");
   await worker.initialize("eng");
   const {
     data: { text },
   } = await worker.recognize(
-    __dirname+"/images/captcha.jpg"
+    __dirname+imageLink
   );
   
   await worker.terminate();
