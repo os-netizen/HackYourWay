@@ -14,6 +14,12 @@ async function linkScraper(URL){
     await page.goto(URL);
     // Wait for the required DOM to be rendered
 		await page.waitForSelector('#captchaDetailImg');
+    const dialog = await page.$("#welcomeDialog");
+    if (dialog) {
+      const dialogContinue = await page.$("#welcomeDialog #continue");
+      console.log(dialogContinue);
+      await dialogContinue.click();
+    }
     const element = await page.$("#captchaDetailImg");
     await element.screenshot({
       path: `images/captcha.jpg`
