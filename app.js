@@ -9,10 +9,10 @@ app.post('/api', (req, res)=>{
     const name=req.query.name
     const dob=req.query.dob// yyyy-mm-dd
     const gender=req.query.gender// M or F 
-    const state=req.query.state
-    const district=req.query.district
+    const state=req.query.state// state id
+    const district=req.query.district// district id
 
-    console.log(name, dob, gender, state, district)
+    // console.log(name, dob, gender, state, district)
 
     const DATA = {
       txtCaptcha: "UwBBqM",
@@ -60,8 +60,11 @@ app.post('/api', (req, res)=>{
 
     axios.post("https://electoralsearch.in/Home/searchVoter", DATA, HEADER)
       .then((response) => {
-        // console.log(response.data);
         res.send(response.data.response);
+        // Required details can be accesses as follows -----
+        // epic_no=response.data.response.docs[0].epic_no
+        // ac_no=response.data.response.docs[0].ac_no
+        // part_no=response.data.response.docs[0].part_no
       })
       .catch((e) => {
         console.log(e);
