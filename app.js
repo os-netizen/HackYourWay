@@ -1,11 +1,15 @@
 const express = require("express");
+const Tesseract = require("tesseract.js");
 const axios = require("axios");
 const { response } = require("express");
+const scraper=require('./puppeteer')
+const captcha=require('./tess')
+
 // const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-app.post('/api', (req, res)=>{
+app.post('/api', async (req, res)=>{
     const name=req.query.name
     const dob=req.query.dob// yyyy-mm-dd
     const gender=req.query.gender// M or F 
@@ -13,9 +17,13 @@ app.post('/api', (req, res)=>{
     const district=req.query.district// district id
 
     // console.log(name, dob, gender, state, district)
+    await scraper("https://electoralsearch.in/");
+    const text= await captcha();
+    // TODO: delete image after use also name image using date
+    console.log(text);
 
     const DATA = {
-      txtCaptcha: "UwBBqM",
+      txtCaptcha: `${text}`,
       search_type: "details",
       reureureired: "ca3ac2c8-4676-48eb-9129-4cdce3adf6ea",
       name: `${name}`,
@@ -30,8 +38,7 @@ app.post('/api', (req, res)=>{
     };
 
     const len =
-      (`{"txtCaptcha":"AtPhvC","search_type":"details","reureureired":"ca3ac2c8-4676-48eb-9129-4cdce3adf6ea","name":"","rln_name":" ","page_no":1,"location":",,","results_per_page":10,"location_range":"20","age":null,"dob":"2001-09-16","gender":"M"}`+name+state+district).length;
-    // console.log(len)
+      (`{"txtCaptcha":"xxxxxx","search_type":"details","reureureired":"ca3ac2c8-4676-48eb-9129-4cdce3adf6ea","name":"","rln_name":" ","page_no":1,"location":",,","results_per_page":10,"location_range":"20","age":null,"dob":"xxxx-xx-xx","gender":"x"}`+name+state+district).length;
 
     const HEADER = {
       headers: {
@@ -61,6 +68,7 @@ app.post('/api', (req, res)=>{
     axios.post("https://electoralsearch.in/Home/searchVoter", DATA, HEADER)
       .then((response) => {
         res.send(response.data.response);
+        console.log(response.data.response.docs[0]);
         // Required details can be accesses as follows -----
         // epic_no=response.data.response.docs[0].epic_no
         // ac_no=response.data.response.docs[0].ac_no
@@ -69,7 +77,7 @@ app.post('/api', (req, res)=>{
       .catch((e) => {
         console.log(e);
       });
-
+      console.log('End!')
 })
 
 app.listen(port, () => {

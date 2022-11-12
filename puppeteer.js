@@ -41,6 +41,8 @@ async function linkScraper(URL){
 	}
 }
 
+
+module.exports=linkScraper;
 // EXAMPLE USAGE BELOW: https://electoralsearch.in/
 
-linkScraper("https://electoralsearch.in/");
+// linkScraper("https://electoralsearch.in/");
