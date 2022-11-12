@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer');
 
-
 async function linkScraper(URL){
 	try{
     browser = await puppeteer.launch({
@@ -14,6 +13,7 @@ async function linkScraper(URL){
     await page.goto(URL);
     // Wait for the required DOM to be rendered
 		await page.waitForSelector('#captchaDetailImg');
+    // Dialog logic
     const dialog = await page.$("#welcomeDialog");
     if (dialog) {
       const dialogContinue = await page.$("#welcomeDialog #continue");

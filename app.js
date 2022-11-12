@@ -18,7 +18,7 @@ app.post('/api', async (req, res)=>{
 
     // console.log(name, dob, gender, state, district)
     await scraper("https://electoralsearch.in/");
-    const text= await captcha();
+    const text= await captcha("/images/captcha.jpg");
     // TODO: delete image after use also name image using date
     console.log(text);
 
