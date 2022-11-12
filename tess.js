@@ -11,7 +11,7 @@ async function captchaToText(imageLink){
   const {
     data: { text },
   } = await worker.recognize(__dirname+imageLink);
-  
+  // console.log(text)
   await worker.terminate();
   return text;
 };
