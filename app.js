@@ -65,18 +65,18 @@ app.post('/api', async (req, res)=>{
       },
     };
 
-    axios.post("https://electoralsearch.in/Home/searchVoter", DATA, HEADER)
-      .then((response) => {
-        res.send(response.data.response);
-        console.log(response.data.response.docs[0]);
-        // Required details can be accesses as follows -----
-        // epic_no=response.data.response.docs[0].epic_no
-        // ac_no=response.data.response.docs[0].ac_no
-        // part_no=response.data.response.docs[0].part_no
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    // axios.post("https://electoralsearch.in/Home/searchVoter", DATA, HEADER)
+    //   .then((response) => {
+    //     res.send(response.data.response);
+    //     console.log(response.data.response.docs[0]);
+    //     // Required details can be accesses as follows -----
+    //     // epic_no=response.data.response.docs[0].epic_no
+    //     // ac_no=response.data.response.docs[0].ac_no
+    //     // part_no=response.data.response.docs[0].part_no
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
       console.log('End!')
 })
 
