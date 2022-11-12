@@ -21,19 +21,14 @@ async function andhra(dist, ac, pn){
     await element.screenshot({
       path: `images/andhra-captcha-${time_now}.jpg`
     });
-    console.log(time_now);
-    const text = await captcha(`/images/andhra-captcha-1668275111917.jpg`);
-    console.log(text, time_now);
+    const text = await captcha(`/images/andhra-captcha-${time_now}.jpg`);
     await page.type('input[name=txtVerificationCode]', text);
     await page.$("#btnSubmit").click();
+    // await browser.close();
   } catch (error) {
     console.log("")
   }
 }
 
-async function cap(){
-  const text = await captcha(`/images/andhra-captcha-1668275111917.jpg`);
-  console.log(text);
-}
-cap();
-//andhra (15, 106, 141);
+
+andhra (15, 106, 141);
