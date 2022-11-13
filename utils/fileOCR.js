@@ -20,7 +20,7 @@ async function translateText(data) {
   return translations[0];
 }
 
-async function pdfToText(filePath) {
+async function pdfToText(filePath, time_now) {
   let pdfArray = await pdf2img.convert(filePath);
   let data;
   const pages = pdfArray.length;
@@ -35,7 +35,7 @@ async function pdfToText(filePath) {
     console.log("batch done!")
   }
 
-  fs.writeFile('translated.txt', data, function (err) {
+  fs.writeFile(`translated-${time_now}.txt`, data, function (err) {
     if (err) return console.log(err);
   });
 }

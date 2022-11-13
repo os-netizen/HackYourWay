@@ -4,7 +4,7 @@ async function captchaHandling(page, link, time_now) {
   await page.goto(link);
 }
 
-async function mizoram(dist, ac, pn) {
+async function mizoram(ac, pn) {
   // TODO: Convert 09 to 9
   // dist is null
   // TODO: HERE AC NAME IS ALSO REQUIRED

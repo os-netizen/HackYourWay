@@ -11,7 +11,7 @@ const meghalayaFunc=require('./meghalaya')
 const mizoramFunc=require('./mizoram')
 const nagalandFunc=require('./nagaland')
 const odishaFunc=require('./odisha')
-const rajasthan=require('./rajasthan')
+const rajasthanFunc=require('./rajasthan')
 const sikkimFunc=require('./sikkim')
 const telanganaFunc=require('./telangana')
 const westBengalFunc=require('./westBengal')
@@ -30,7 +30,7 @@ module.exports = {
   mizoramFunc,
   nagalandFunc,
   odishaFunc,
-  rajasthan,
+  rajasthanFunc,
   sikkimFunc,
   westBengalFunc,
   telanganaFunc

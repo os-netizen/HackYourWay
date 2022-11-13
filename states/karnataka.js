@@ -19,7 +19,7 @@ async function captchaHandling(page, link, time_now) {
 }
 
 // https://ceoaperolls.ap.gov.in/AP_Eroll_2023/Popuppage?partNumber=141&roll=EnglishMotherRoll&districtName=DIST_15&acname=106&acnameeng=A106&acno=106&acnameurdu=106
-async function karnataka(dist, ac, pn) {
+async function karnataka(ac, pn) {
   const URL = `https://ceo.karnataka.gov.in/draftroll_2023/CodeCaputer1.aspx?field1=.%2fKANNADA%2fMR%2fAC${ac
     .toString()
     .padStart(3, '0')}%2fS10A${ac}P${pn}.pdf&field2=${ac}&field3=${pn
