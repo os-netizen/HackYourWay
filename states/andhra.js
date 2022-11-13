@@ -22,7 +22,7 @@ async function captchaHandling(page, link, time_now){
 async function andhra(dist, ac, pn){
   const URL = `https://ceoaperolls.ap.gov.in/AP_Eroll_2023/Popuppage?partNumber=${pn}&roll=EnglishMotherRoll&districtName=DIST_${dist}&acname=${ac}&acnameeng=A${ac}&acno=${ac}&acnameurdu=${ac}`;
 
-  requestPauser(URL, captchaHandling);
+  await requestPauser(URL, captchaHandling);
   // Do somehting with pdf [take epic id too above]
 }
 

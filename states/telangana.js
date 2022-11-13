@@ -22,7 +22,7 @@ async function captchaHandling(page, link, time_now){
 async function telangana(dist, ac, pn){
   const URL = `https://ceotserms2.telangana.gov.in/ts_erolls/Popuppage.aspx?partNumber=${pn}&roll=EnglishMotherRoll&districtName=DIST_${dist}&acname=AC_0${ac}&acnameeng=A${ac}&acno=${ac}&acnameurdu=0${ac}`;
 
-  requestPauser(URL, captchaHandling);
+  await requestPauser(URL, captchaHandling);
   // Do somehting with pdf [take epic id too above]
 }
 
