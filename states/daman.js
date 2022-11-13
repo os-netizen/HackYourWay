@@ -13,4 +13,4 @@ async function daman(dist, ac, pn) {
 }
 
 module.exports = daman
-daman(null, null, 10)
+// daman(null, null, 10)
