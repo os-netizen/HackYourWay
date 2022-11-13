@@ -16,5 +16,4 @@ async function chandigarh(dist, ac, pn) {
 }
 
 module.exports = chandigarh
-// gujarat(null, 3, 8);
-chandigarh(null, null, 9)
+// chandigarh(null, null, 9)
