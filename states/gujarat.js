@@ -10,4 +10,5 @@ async function gujarat(dist, ac, pn) {
   await requestPauser(URL, captchaHandling);
 }
 
-gujarat(null, 3, 8);
+module.exports = gujarat;
+// gujarat(null, 3, 8);
