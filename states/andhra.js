@@ -28,4 +28,3 @@ async function andhra(dist, ac, pn){
 }
 
 module.exports = andhra;
-andhra(15, 106, 141);
