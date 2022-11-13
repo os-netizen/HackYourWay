@@ -15,5 +15,5 @@ async function goa(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= goa
-goa("", 1, 1);
+module.exports= goa
+// goa("", 1, 1);
