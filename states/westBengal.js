@@ -13,5 +13,5 @@ async function westBengal(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= westBengal
-westBengal(2, 14, 172);
+module.exports= westBengal
+// westBengal(2, 14, 172);
