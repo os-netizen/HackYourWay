@@ -5,12 +5,7 @@ async function captchaHandling(page, link, time_now) {
 }
 
 async function chandigarh(dist, ac, pn) {
-  if (pn < 10) {
-    pn = '00' + pn
-  } else if (pn < 100) {
-    pn = '0' + pn
-  }
-  const URL = `https://ceochandigarh.gov.in/sites/default/files/polling_files/w0010${pn}.pdf`
+  const URL = `https://ceochandigarh.gov.in/sites/default/files/polling_files/w0010${pn.toString().padStart(3, "0")}.pdf`
 
   await requestPauser(URL, captchaHandling)
 }

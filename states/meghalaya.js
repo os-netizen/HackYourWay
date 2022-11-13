@@ -8,7 +8,11 @@ async function meghalaya(dist, ac, pn) {
     // TODO : INPUT ac AND pn AS STRINGS
   // TODO: ac is 3 digit and pn is 4 digit
   // dist is null
-  const URL = `https://ceomeghalaya.nic.in/erolls/pdf/english/A${ac}/A${ac}${pn}.pdf`;
+  const URL = `https://ceomeghalaya.nic.in/erolls/pdf/english/A${ac
+    .toString()
+    .padStart(3, "0")}/A${ac.toString().padStart(3, "0")}${pn
+    .toString()
+    .padStart(4, "0")}.pdf`;
 
   await requestPauser(URL, captchaHandling);
   // Do somehting with pdf [take epic id too above]
