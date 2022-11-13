@@ -48,7 +48,7 @@ async function delhi(dist, ac, pn){
   // Do somehting with pdf [take epic id too above]
 }
 
-delhi(1, 2, 3)
+// delhi(1, 2, 3)
 
 module.exports = delhi;
 // delhi(15, 106, 141);

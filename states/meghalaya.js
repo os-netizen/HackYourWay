@@ -18,5 +18,5 @@ async function meghalaya(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= meghalaya
-meghalaya("", '003', '0009')
+module.exports= meghalaya
+// meghalaya("", '003', '0009')

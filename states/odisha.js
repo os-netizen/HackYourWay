@@ -13,5 +13,5 @@ async function odisha(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= odisha
-odisha("", 49, 4);
+module.exports= odisha
+// odisha("", 49, 4);

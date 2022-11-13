@@ -13,5 +13,5 @@ async function nagaland(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= nagaland
-nagaland("", 50, 2);
+module.exports= nagaland
+// nagaland("", 50, 2);
