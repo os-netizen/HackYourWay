@@ -12,4 +12,5 @@ async function assam(dist, ac, pn){
   // Do somehting with pdf [take epic id too above]
 }
 
+// module.exports=assam
 assam(9, 32, 1);
