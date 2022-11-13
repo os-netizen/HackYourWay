@@ -14,5 +14,5 @@ async function mizoram(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= mizoram
-mizoram("", 40, 44);
+module.exports= mizoram
+// mizoram("", 40, 44);
