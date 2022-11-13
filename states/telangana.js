@@ -9,12 +9,12 @@ async function captchaHandling(page, link, time_now){
   await element.screenshot({
     path: `images/telangana-captcha-${time_now}.jpg`
   });
-  const text = await captcha(`/images/telangana-captcha-${time_now}.jpg`);
+  const text = await captcha(`images/telangana-captcha-${time_now}.jpg`);
   console.log(text);
-  // await page.type('input[name=txtVerificationCode]', text);
-  // await page.$("#btnSubmit").click();
-  // delete image
-  await page.waitForTimeout(10000);
+  await Promise.all([
+    page.type('input[name=txtVerificationCode]', text),
+    page.locator("#btnSubmit").click(),
+  ])
   // close browser
 }
 
