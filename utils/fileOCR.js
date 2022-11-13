@@ -1,4 +1,5 @@
 const {ImageAnnotatorClient} = require('@google-cloud/vision').v1;
+const {Translate} = require('@google-cloud/translate').v2;
 const pdf2img = require("pdf-img-convert");
 const fs = require('fs').promises;
 
@@ -11,6 +12,13 @@ const CONFIG = {
 
 // Instantiates a client
 const client = new ImageAnnotatorClient(CONFIG);
+const translate = new Translate(CONFIG);
+
+async function translateText(data) {
+  let [translations] = await translate.translate(data, 'en');
+  translations = Array.isArray(translations) ? translations : [translations];
+  return translations[0];
+}
 
 async function pdfToText(filePath) {
   let pdfArray = await pdf2img.convert(filePath);
@@ -27,9 +35,8 @@ async function pdfToText(filePath) {
     console.log("batch done!")
   }
 
-  fs.writeFile('apgov.txt', data, function (err) {
+  fs.writeFile('translated.txt', data, function (err) {
     if (err) return console.log(err);
-    console.log('> apgov.txt');
   });
 }
 
@@ -54,9 +61,10 @@ async function batchAnnotateFiles(fileName, pages) {
 
   let data;
   for (const response of responses) {
-    data += response.fullTextAnnotation.text;
+    data += await translateText(response.fullTextAnnotation.text);
   }
   return data;
 }
 
-pdfToText('apgov.pdf');
+module.exports = pdfToText;
+//pdfToText('wbgov.pdf');
