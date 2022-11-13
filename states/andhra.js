@@ -15,6 +15,7 @@ async function captchaHandling(page, link, time_now){
   // await page.$("#btnSubmit").click();
   // delete image
   await page.waitForTimeout(10000);
+  // close browser
 }
 
 // https://ceoaperolls.ap.gov.in/AP_Eroll_2023/Popuppage?partNumber=141&roll=EnglishMotherRoll&districtName=DIST_15&acname=106&acnameeng=A106&acno=106&acnameurdu=106

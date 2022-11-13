@@ -1,37 +1,30 @@
-const puppeteer = require("puppeteer");
-const captcha = require("../tess");
+const captcha = require('../tess');
+const requestPauser = require('../utils/requestPauser');
 
-// https://ceotserms2.telangana.gov.in/ts_erolls/Popuppage.aspx?partNumber=125&roll=EnglishMotherRoll&districtName=DIST_16&acname=AC_047&acnameeng=A47&acno=47&acnameurdu=047
-async function telangana(dist, ac, pn) {
-  const time_now = Date.now();
-  const URL = `https://ceotserms2.telangana.gov.in/ts_erolls/Popuppage.aspx?partNumber=${pn}&roll=EnglishMotherRoll&districtName=DIST_${dist}&acname=AC_0${ac}&acnameeng=A${ac}&acno=${ac}&acnameurdu=0${ac}`;
-  try {
-    browser = await puppeteer.launch({
-      headless: false,
-      args: ["--disable-setuid-sandbox"],
-      ignoreHTTPSErrors: true,
-    });
-    let page = await browser.newPage();
-    await page.goto(URL);
-
-    // Wait for the required DOM to be rendered
-    await page.waitForSelector("#Image2");
-    // Take the element to be captured
-    const element = await page.$("#Image2");
-    await element.screenshot({
-      path: `images/telangana-captcha-${time_now}.jpg`,
-    });
-    const text = await captcha(`/images/telangana-captcha-${time_now}.jpg`);
-    // console.log(text)
-    await page.type("input[name=txtVerificationCode]", text);
-    await page.$("#btnSubmit").click();
-
-    //TODO: converting pdf to image
-
-    // await browser.close();
-  } catch (error) {
-    console.log("");
-  }
+async function captchaHandling(page, link, time_now){
+  await page.goto(link);
+  await page.waitForSelector('#Image2');
+  // Take the element to be captured
+  const element = await page.$("#Image2");
+  await element.screenshot({
+    path: `images/telangana-captcha-${time_now}.jpg`
+  });
+  const text = await captcha(`/images/telangana-captcha-${time_now}.jpg`);
+  console.log(text);
+  // await page.type('input[name=txtVerificationCode]', text);
+  // await page.$("#btnSubmit").click();
+  // delete image
+  await page.waitForTimeout(10000);
+  // close browser
 }
 
-telangana(16, 47, 125)
+// https://ceoaperolls.ap.gov.in/AP_Eroll_2023/Popuppage?partNumber=141&roll=EnglishMotherRoll&districtName=DIST_15&acname=106&acnameeng=A106&acno=106&acnameurdu=106
+async function telangana(dist, ac, pn){
+  const URL = `https://ceotserms2.telangana.gov.in/ts_erolls/Popuppage.aspx?partNumber=${pn}&roll=EnglishMotherRoll&districtName=DIST_${dist}&acname=AC_0${ac}&acnameeng=A${ac}&acno=${ac}&acnameurdu=0${ac}`;
+
+  requestPauser(URL, captchaHandling);
+  // Do somehting with pdf [take epic id too above]
+}
+
+module.exports = telangana;
+//telangana(16, 47, 125)
