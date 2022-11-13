@@ -13,5 +13,5 @@ async function rajasthan(dist, ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-//module.exports= rajasthan
-rajasthan('Sikar', 35, 177);
+module.exports= rajasthan
+// rajasthan('Sikar', 35, 177);
