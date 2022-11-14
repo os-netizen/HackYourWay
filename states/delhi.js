@@ -1,4 +1,5 @@
-const captcha = require('../tess');
+const fs = require("fs");
+const captcha = require('../utils/captcha');
 const requestPauser = require('../utils/requestPauser');
 
 const { chromium } = require('playwright');
@@ -13,6 +14,7 @@ async function captchaHandling(page, link, time_now, obj){
   });
   const text = await captcha(`/images/delhi-captcha-${time_now}.jpg`);
   console.log(text);
+  fs.unlinkSync(`images/delhi-captcha-${time_now}.jpg`)
   // await page.type('input[name=txtVerificationCode]', text);
   // await page.$("#btnSubmit").click();
   // delete image
@@ -20,7 +22,7 @@ async function captchaHandling(page, link, time_now, obj){
   // close browser
 }
 
-async function generatePath(dist, ac, pn){
+async function generatePath(ac, pn){
   const browser = await chromium.launch({
     headless: false,
   });
@@ -40,9 +42,9 @@ async function generatePath(dist, ac, pn){
 }
 
 // https://ceoaperolls.ap.gov.in/AP_Eroll_2023/Popuppage?partNumber=141&roll=EnglishMotherRoll&districtName=DIST_15&acname=106&acnameeng=A106&acno=106&acnameurdu=106
-async function delhi(dist, ac, pn){
+async function delhi(ac, pn){
 
-  const path = await generatePath(dist, ac, pn);
+  const path = await generatePath(ac, pn);
 
   await requestPauser("https://ceodelhi.gov.in" + path, captchaHandling);
   // Do somehting with pdf [take epic id too above]

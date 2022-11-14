@@ -100,7 +100,7 @@ async function requestPauser(link, captchaHandling) {
   await browser.close();
 
   // await pdfToImg(`state-${time_now}.pdf`)
-  await pdfToText(`state-${time_now}.pdf`);
+  await pdfToText(`state-${time_now}.pdf`, time_now);
 };
 
 module.exports = requestPauser;

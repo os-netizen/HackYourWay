@@ -1,4 +1,4 @@
-const captcha = require('../tess')
+const captcha = require('../utils/captcha');
 const requestPauser = require('../utils/requestPauser')
 
 async function captchaHandling(page, link, time_now) {
@@ -11,6 +11,7 @@ async function captchaHandling(page, link, time_now) {
   })
   const text = await captcha(`/images/karnataka-captcha-${time_now}.jpg`)
   console.log(text)
+  fs.unlinkSync(`images/karnataka-captcha-${time_now}.jpg`)
   // await page.type('input[name=txtVerificationCode]', text);
   // await page.$("#btnSubmit").click();
   // delete image
@@ -19,7 +20,7 @@ async function captchaHandling(page, link, time_now) {
 }
 
 // https://ceoaperolls.ap.gov.in/AP_Eroll_2023/Popuppage?partNumber=141&roll=EnglishMotherRoll&districtName=DIST_15&acname=106&acnameeng=A106&acno=106&acnameurdu=106
-async function karnataka(dist, ac, pn) {
+async function karnataka(ac, pn) {
   const URL = `https://ceo.karnataka.gov.in/draftroll_2023/CodeCaputer1.aspx?field1=.%2fKANNADA%2fMR%2fAC${ac
     .toString()
     .padStart(3, '0')}%2fS10A${ac}P${pn}.pdf&field2=${ac}&field3=${pn

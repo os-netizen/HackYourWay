@@ -14,13 +14,22 @@ const CONFIG = {
 const client = new ImageAnnotatorClient(CONFIG);
 const translate = new Translate(CONFIG);
 
+function findTree(data, name) {
+  data = data.toUpperCase();
+  name = name.toUpperCase();
+  const reg = new RegExp(':[^:]*?[\n]','g');
+  let arr = data.match(reg).map(item => item.slice(2, item.length-1));
+  const nameIndex = arr.indexOf(name);
+  console.log(arr[nameIndex+1]);
+}
+
 async function translateText(data) {
   let [translations] = await translate.translate(data, 'en');
   translations = Array.isArray(translations) ? translations : [translations];
   return translations[0];
 }
 
-async function pdfToText(filePath) {
+async function pdfToText(filePath, time_now) {
   let pdfArray = await pdf2img.convert(filePath);
   let data;
   const pages = pdfArray.length;
@@ -35,7 +44,8 @@ async function pdfToText(filePath) {
     console.log("batch done!")
   }
 
-  fs.writeFile('translated.txt', data, function (err) {
+  findTree(data, "adithya vardhan");
+  fs.writeFile(`translated-${time_now}.txt`, data, function (err) {
     if (err) return console.log(err);
   });
 }

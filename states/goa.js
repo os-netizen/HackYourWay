@@ -4,7 +4,7 @@ async function captchaHandling(page, link, time_now) {
   await page.goto(link);
 }
 
-async function goa(dist, ac, pn) {
+async function goa(ac, pn) {
   // TODO: Convert 09 to 9
   // dist name can be null
 
