@@ -1,5 +1,5 @@
 const fs = require("fs");
-const captcha = require('../tess');
+const captcha = require('../utils/captcha');
 const requestPauser = require('../utils/requestPauser');
 
 const { chromium } = require('playwright');

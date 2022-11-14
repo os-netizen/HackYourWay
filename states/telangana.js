@@ -1,4 +1,4 @@
-const captcha = require('../tess');
+const captcha = require('../utils/captcha');
 const requestPauser = require('../utils/requestPauser');
 
 async function captchaHandling(page, link, time_now){

@@ -1,7 +1,7 @@
 const express = require("express");
 const axios = require("axios");
-const scraper=require('./puppeteer')
-const captcha=require('./tess')
+const scraper=require('./puppeteer');
+
 const {
   andhraFunc,
   assamFunc,
@@ -27,11 +27,22 @@ const port = 3000;
 
 app.post('/api', async (req, res)=>{
   const name=req.query.name
-  const ac=req.query.ac
-  const pn=req.query.pn
-  const state=req.query.state
-  const dist=req.query.district
+  const fname = req.query.fsname ?? " ";
+  const dob = req.query.dob.split("-"); // YYYY-MM-DD
+  const gender=req.query.gender ?? null; // M or F or O
+  const state=req.query.state; // Take STATE_CODE as input;
+  const district =req.query.dist ?? null; // Take DIST_CODE as input;
 
+  const [dist, ac, pn] = await scraper("https://electoralsearch.in/", {
+    name,
+    fname,
+    year: dob[0],
+    month: dob[1],
+    day: dob[2],
+    gender,
+    state,
+    dist: district
+  })
   // "S01 S03 U02 S26 U03 U05 S05 S06 S10 S15 S16 S17 S18 S20 S21 S29 S25"
   switch (state) {
     case "S01":
@@ -105,6 +116,7 @@ app.post('/api', async (req, res)=>{
     default:
       break;
   }
+  res.send("Success!");
 })
 
 app.listen(port, () => {

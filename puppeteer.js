@@ -1,15 +1,48 @@
-const puppeteer = require('puppeteer');
+const axios = require("axios");
+const fs = require("fs");
+const { chromium } = require('playwright');
+const captcha = require('./utils/captcha');
 
-async function linkScraper(URL){
+async function enterInfo(page, data){
+  await page.type('input#name1', data.name);
+  await page.type('input#txtFName', data.fname);
+  await page.locator('#nameStateList').selectOption(data.state);
+  await page.locator('input#radDob').click();
+  await page.locator('#yearList').selectOption({label: data.year}); // "2002"
+  await page.locator('#monthList').selectOption(data.month); // "04"
+  await page.locator('#dayList').selectOption({label: data.day}); // "20"
+  if (data.gender)
+    await page.locator('#listGender').selectOption(data.gender);
+  if (data.district) {
+    await page.waitForTimeout(2000);
+    await page.locator('#namelocationList').selectOption(`string:${data.district}`);
+  }
+}
+
+async function captchaSubmit(page){
+  const time_now = Date.now();
+  const element = await page.$("#captchaDetailImg");
+  await element.screenshot({
+    path: `images/captcha-${time_now}.jpg`
+  });
+  const text = await captcha(`images/captcha-${time_now}.jpg`);
+  fs.unlinkSync(`images/captcha-${time_now}.jpg`)
+  await page.type('input#txtCaptcha', text);
+  await page.locator('#tab1 #btnDetailsSubmit').click();
+  
+  await page.waitForTimeout(2000);
+  const result = await page.url();
+  // document.querySelectorAll("tbody")[0].children.length
+  return result.includes("resultArea");
+}
+
+async function linkScraper(URL, data){
 	try{
-    browser = await puppeteer.launch({
+    const browser = await chromium.launch({
       headless: false,
-      args: ["--disable-setuid-sandbox"],
-      'ignoreHTTPSErrors': true
     });
-    console.log(browser);
-		let page = await browser.newPage();
-    console.log(`Navigating to ${URL}...`);
+    const browserContext = await browser.newContext();
+    const page = await browserContext.newPage();
     await page.goto(URL);
     // Wait for the required DOM to be rendered
 		await page.waitForSelector('#captchaDetailImg');
@@ -17,32 +50,64 @@ async function linkScraper(URL){
     const dialog = await page.$("#welcomeDialog");
     if (dialog) {
       const dialogContinue = await page.$("#welcomeDialog #continue");
-      console.log(dialogContinue);
       await dialogContinue.click();
     }
-    const element = await page.$("#captchaDetailImg");
-    await element.screenshot({
-      path: `images/captcha.jpg`
-    });
+    await enterInfo(page, data);
+
+    // Keep trying captcha till it opens
+    let opened = await captchaSubmit(page);
+    while(!opened) {
+      opened = await captchaSubmit(page);
+    }
+
+    let dist;
+    let distName;
+    if (!data.dist) {
+      const distLocator = await page.locator("tr[ng-repeat] td:nth-child(7)");
+      const distText = await distLocator.allInnerTexts();
+      distName = distText[0].toUpperCase();
+
+      axios.get(`https://electoralsearch.in/Home/GetDistList?st_code=${data.state}`)
+        .then((res) => {
+          let result = res.data.find(item => item.dist_name.toUpperCase() === distName);
+          dist = result.dist_no;
+        })
+      // https://electoralsearch.in/Home/GetDistList?st_code=${data.state}
+    } else {
+      dist = data.dist;
+    }
+
+    // TODO: let dist = data.dist ? data.dist : nameToDistCode(distName);
+    const submit = await page.$("input[value='View Details']");
+    await submit.click();
+    await page.waitForTimeout(2000);
+    let pages = await browserContext.pages();
+
+    const acLocator = await pages[1].locator("#ac_name+td");
+    const pnLocator = await pages[1].locator("#part_no+td");
+
+    const acText = await acLocator.allInnerTexts();
+    const pnText = await pnLocator.allInnerTexts();
+
+    const ac = acText[0].match(/(\d+)/)[0];
+    const pn = pnText[0];
 
     await browser.close();
-		// // Get the link to all the required books
-		// let urls = await page.$$eval('#captchaDetailImg', imgs => {
-		// 	// Make sure the book to be scraped is in stock
-		// 	imgs = links.filter(link => link.querySelector('.instock.availability > i').textContent !== "In stock")
-		// 	// Extract the links from the data
-		// 	links = links.map(el => el.querySelector('h3 > a').href)
-		// 	return imgs[0];
-		// });
-		// console.log(urls);
+    return [dist, ac, pn];
 	}
 	catch(err){
 		console.log("Could not resolve the browser instance => ", err);
 	}
 }
 
-
+/* linkScraper("https://electoralsearch.in/", {
+  name: "Sigireddy Adithya Vardhan",
+  fname: " ",
+  year: "2002",
+  month: "04",
+  day: "20",
+  gender: "M",
+  state: "S01",
+  //dist: "15"
+}) */
 module.exports=linkScraper;
-// EXAMPLE USAGE BELOW: https://electoralsearch.in/
-
-// linkScraper("https://electoralsearch.in/");
