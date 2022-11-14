@@ -1,0 +1,432 @@
+state_code: S03, state_name: Assam
+	34 BAJALI
+	15 BAKSA
+	11 BARPETA
+	30 BISWANATH
+	9 BONGAIGAON
+	3 CACHAR
+	33 CHARAIDEO
+	8 CHIRANG
+	16 DARRANG
+	25 DHEMAJI
+	6 DHUBRI
+	26 DIBRUGARH
+	4 DIMA HASAO
+	10 GOALPARA
+	21 GOLAGHAT   
+	2 HAILAKANDI
+	31 HOJAI
+	22 JORHAT
+	13 KAMRUP (METRO)
+	12 KAMRUP. 
+	5 KARBI ANGLONG 
+	1 KARIMGANJ
+	7 KOKRAJHAR
+	24 LAKHIMPUR
+	32 MAJULI
+	19 MORIGAON 
+	20 NAGAON 
+	14 NALBARI
+	23 SIVASAGAR
+	18 SONITPUR
+	29 SOUTH SALMARA MANKACHAR
+	27 TINSUKIA
+	17 UDALGURI
+	28 WEST KARBI ANGLONG
+
+state_code: S01, state_name: Andhra Pradesh
+	4 Alluri Sitharama Raju
+	6 Anakapalli
+	21 Ananthapuramu
+	24 Annamayya
+	15 Bapatla
+	25 Chittoor
+	8 Dr.B.R.Ambedkar Konaseema
+	9 East Godavari
+	11 Eluru
+	14 Guntur
+	7 Kakinada
+	12 Krishna
+	19 Kurnool
+	20 Nandyal
+	13 NTR
+	16 Palnadu
+	3 Parvathipuram Manyam
+	17 Prakasam
+	18 Sri Potti Sriramulu Nellore
+	22 Sri Sathya Sai
+	1 Srikakulam
+	26 Tirupati
+	5 Visakhapatnam
+	2 Vizianagaram
+	10 West Godavari
+	23 YSR
+
+
+state_code: S05, state_name: Goa
+	1 North Goa
+	2 South Goa
+
+state_code: S06, state_name: Gujarat
+	7 Ahmedabad
+	13 Amreli
+	15 Anand
+	27 Arvalli
+	2 Banaskantha
+	21 Bharuch
+	14 Bhavnagar
+	31 Botad
+	33 Chhotaudepur
+	18 Dahod
+	23 Dangs
+	29 Devbhumi Dwarka
+	6 Gandhinagar
+	30 Gir Somnath
+	10 Jamnagar
+	12 Junagadh
+	1 Kachchh
+	16 Kheda
+	4 Mahesana
+	32 Mahisagar
+	28 Morbi
+	20 Narmada
+	24 Navsari
+	17 Panchmahal
+	3 Patan
+	11 Porbandar
+	9 Rajkot
+	5 Sabarkantha
+	22 Surat
+	8 Surendranagar
+	26 Tapi
+	19 Vadodara
+	25 Valsad
+
+state_code: S10, state_name: Karnataka
+	31 B.B.M.P(CENTRAL)
+	32 B.B.M.P(NORTH)
+	33 B.B.M.P(SOUTH)
+	2 BAGALKOT
+	22 BANGALORE RURAL
+	34 BANGALORE URBAN
+	1 BELGAUM
+	12 BELLARY
+	5 BIDAR
+	3 BIJAPUR
+	29 CHAMARAJNAGAR
+	19 CHIKKABALLAPUR
+	17 CHIKKMAGALUR
+	13 CHITRADURGA
+	26 DAKSHINA KANNADA
+	14 DAVANGERE
+	9 DHARWAD
+	8 GADAG
+	4 GULBARGA
+	25 HASSAN
+	11 HAVERI
+	27 KODAGU
+	20 KOLAR
+	7 KOPPAL
+	24 MANDYA
+	28 MYSORE
+	6 RAICHUR
+	23 RAMANAGARAM
+	15 SHIMOGA
+	18 TUMKUR
+	16 UDUPI
+	10 UTTARA KANNADA
+	36 VIJAYANAGARA
+	35 YADGIR
+
+state_code: S11, state_name: Kerala
+	11 ALAPPUZHA
+8 ERNAKULAM
+9 IDUKKI
+2 KANNUR
+1 KASARAGOD
+13 KOLLAM
+10 KOTTAYAM
+4 KOZHIKODE
+5 MALAPPURAM
+6 PALAKKAD
+12 PATHANAMTHITTA
+14 THIRUVANANTHAPURAM
+7 THRISSUR
+3 WAYANAD
+
+state_code: S14, state_name: Manipur
+	3 Bishnupur
+5 Chandel
+9 Churachandpur
+2 Imphal East
+1 Imphal West
+10 Jiribam
+11 Kangpokpi
+7 Senapati
+8 Tamenglong
+4 Thoubal
+6 Ukhrul
+
+state_code: S15, state_name: Meghalaya
+	5 EAST GARO HILLS
+	8 EAST JAINTIA HILLS
+	3 EAST KHASI HILLS
+	12 EASTERN WEST KHASI HILLS
+	10 NORTH GARO HILLS
+	2 RI-BHOI
+	7 SOUTH GARO HILLS
+	11 SOUTH WEST GARO HILLS
+	9 SOUTH WEST KHASI HILLS
+	6 WEST GARO HILLS
+	1 WEST JAINTIA HILLS
+	4 WEST KHASI HILLS
+
+state_code: S16, state_name: Mizoram
+	3 AIZAWL
+	4 CHAMPHAI
+	11 HNAHTHIAL
+	10 KHAWZAWL
+	2 KOLASIB
+	7 LAWNGTLAI
+	6 LUNGLEI
+	1 MAMIT
+	9 SAITUAL
+	5 SERCHHIP
+	8 SIAHA
+state_code: S17, state_name: Nagaland
+	15 CHUMOUKEDIMA
+	1 DIMAPUR
+	12 KIPHIRE
+	3 KOHIMA
+	10 LONGLENG
+	6 MOKOKCHUNG
+	9 MON
+	13 NOKLAK
+	2 PEREN
+	5 PHEK
+	4 PUGHOBOTO
+	16 SHAMATOR
+	14 TSEMINYU
+	11 TUENSANG
+	8 WOKHA
+	7 ZUNHEBOTO
+state_code: S18, state_name: Odisha
+	12 Angul
+	8 Balasore
+	1 Bargarh
+	9 Bhadrak
+	14 Bolangir
+	19 Boudh
+	20 Cuttack
+	5 Deogarh
+	11 Dhenkanal
+	27 Gajapati
+	26 Ganjam
+	22 Jagatsinghpur
+	10 Jajpur
+	2 Jharsuguda
+	17 Kalahandi
+	18 Kandhamal
+	21 Kendrapara
+	6 Keonjhar
+	24 Khurda
+	29 Koraput
+	30 Malkangiri
+	7 Mayurbhanj
+	16 Nabarangpur
+	25 Nayagarh
+	15 Nuapada
+	23 Puri
+	28 Rayagada
+	4 Sambalpur
+	13 Subarnapur
+	3 Sundargarh
+state_code: S19, state_name: Punjab
+	2 AMRITSAR
+	19 BARNALA
+	16 BATHINDA
+	15 FARIDKOT
+	10 FATEHGARH SAHIB
+	23 FAZILKA
+	13 FEROZEPUR
+	1 GURDASPUR
+	6 HOSHIARPUR
+	5 JALANDHAR
+	4 KAPURTHALA
+	11 LUDHIANA
+	21 MALERKOTLA
+	17 MANSA
+	12 MOGA
+	22 PATHANKOT
+	20 PATIALA
+	8 RUPNAGAR
+	9 SAHIBJADA AJIT SINGH NAGAR
+	18 SANGRUR
+	7 SHAHID BHAGAT SINGH NAGAR
+	14 SRI MUKTSAR SAHIB
+	3 TARN TARAN
+
+state_code: S20, state_name: Rajasthan
+	15 Ajmer
+	8 Alwar
+	25 Banswara
+	31 Baran
+	20 Barmer
+	9 Bharatpur
+	28 Bhilwara
+	3 Bikaner
+	29 Bundi
+	26 Chittorgarh
+	4 Churu
+	12 Dausa
+	10 Dholpur
+	24 Dungarpur
+	1 Ganganagar
+	2 Hanumangarh
+	7 Jaipur
+	19 Jaisalmer
+	21 Jalore
+	32 Jhalawar
+	5 Jhunjhunu
+	18 Jodhpur
+	11 Karauli
+	30 Kota
+	16 Nagaur
+	17 Pali
+	33 Pratapgarh
+	27 Rajsamand
+	13 Sawaimadhopur
+	6 Sikar
+	22 Sirohi
+	14 Tonk
+	23 Udaipur
+
+state_code: S21, state_name: Sikkim
+	1 EAST-SIKKIM
+	3 NORTH-SIKKIM
+	4 SOUTH-SIKKIM
+	2 WEST-SIKKIM
+
+state_code: S25, state_name: West Bengal
+	22 ALIPURDUAR
+	19 BANKURA
+	21 BIRBHUM
+	1 COOCHBEHAR
+	5 DAKSHIN DINAJPUR
+	3 DARJEELING
+	15 HOOGHLY
+	14 HOWRAH
+	2 JALPAIGURI
+	24 JHARGRAM
+	23 Kalimpong
+	12 KOLKATA NORTH
+	11 KOLKATA SOUTH
+	6 MALDA
+	7 MURSHIDABAD
+	8 NADIA
+	9 NORT
+	25 PASCHIM BARDHAMAN
+	17 PASCHIM MEDINIPUR
+	20 PURBA BARDHAMAN
+	16 PURBO MEDINIPUR
+	18 PURULIA
+	10 SOUTH 
+	24  PARGANAS
+	4 UTTAR DINAJPUR
+
+state_code: S26, state_name: Chattisgarh
+	67 BALOD
+	70 BALODABAZAR - BHATAPARA
+	65 BALRAMPUR
+	45 BASTAR (JAGDALPUR)
+	68 BEMETARA
+	62 BIJAPUR
+	40 BILASPUR
+	61 DAKSHIN BASTAR DANTEWADA
+	59 DHAMTARI
+	43 DURG
+	71 GARIYABAND
+	73 Gaurela-Pendra-Marwahi
+	54 JANJGIR-CHAMPA
+	56 JASHPUR
+	57 KABIRDHAM
+	77 KHAIRAGARH-CHHUYIKHADAN-GANDAYI
+	69 KONDAGAON
+	55 KORBA
+	53 KORIA
+	58 MAHASAMUND
+	74 MANENDRAGARH-CHIRMIRI-BHARATPUR
+	78 MOHLA-MAANPUR-An. CHOUKI
+	72 MUNGELI
+	63 NARAYANPUR
+	41 RAIGARH
+	44 RAIPUR
+	42 RAJNANDGAON
+	76 SAKTI
+	75 SARANGARH BILAIGARH
+	66 SUKMA
+	64 SURAJPUR
+	39 SURGUJA
+	60 UTTAR BASTAR KANKER
+
+state_code: S29, state_name: Telangana
+	3 Adilabad
+	30 Bhadradri
+	28 Hanumakonda
+	17 Hyderabad
+	7 Jagtial
+	25 Jangaon
+	29 Jayashankar Bhupalpalle
+	21 Jogulamba Gadwal
+	6 Kamareddy
+	9 Karimnagar
+	31 Khammam
+	1 Kumaram Bheem Asifabad
+	26 Mahabubabad
+	18 Mahabubnagar
+	2 Mancherial
+	12 Medak
+	16 Medchal Malkajgiri
+	32 Mulugu
+	19 Nagarkurnool
+	22 Nalgonda
+	33 Narayanpet
+	4 Nirmal
+	5 Nizamabad
+	8 Peddapalli
+	10 Rajanna Sircilla
+	14 Rangareddy
+	11 Sangareddy
+	13 Siddipet
+	23 Suryapet
+	15 Vikarabad
+	20 Wanaparthy
+	27 Warangal
+	24 Yadadri Bhongiri
+
+state_code: U01, state_name: Andaman & Nicobar Islands
+	3 NICOBAR
+ 	1 NORTH AND MIDDLE ANDAMAN
+	2 SOUTH ANDAMAN
+
+state_code: U02, state_name: Chandigarh
+	1 CHANDIGARH
+
+state_code: U03, state_name: Dadra & Nagar Haveli and Daman & Diu
+	3 DADRA & NAGAR HAVELI
+	1 DAMAN
+	2 DIU
+
+state_code: U05, state_name: NCT OF Delhi
+	4 CENTRAL                       
+	6 EAST                          
+	9 NEW DELHI                     
+	8 NORTH                         
+	2 NORTH EAST                    
+	1 NORTH WEST                    
+	10 SHAHDARA
+	3 SOUTH                         
+	5 SOUTH WEST                    
+	11 SOUTH-EAST
+	7 WEST   
+
