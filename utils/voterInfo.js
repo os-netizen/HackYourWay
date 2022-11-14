@@ -1,7 +1,7 @@
 const axios = require("axios");
 const fs = require("fs");
 const { chromium } = require('playwright');
-const captcha = require('./utils/captcha');
+const captcha = require('./captcha');
 
 async function enterInfo(page, data){
   await page.type('input#name1', data.name);

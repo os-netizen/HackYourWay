@@ -1,6 +1,5 @@
 const express = require("express");
-const axios = require("axios");
-const scraper=require('./puppeteer');
+const scraper=require('./utils/voterInfo');
 
 const {
   andhraFunc,
