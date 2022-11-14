@@ -89,10 +89,15 @@ async function linkScraper(URL, data){
     const acText = await acLocator.allInnerTexts();
     const pnText = await pnLocator.allInnerTexts();
 
-    const ac = acText[0].match(/(\d+)/)[0];
+    const acArr = acText[0].split(" - ")
+    const ac = acArr[1];
     const pn = pnText[0];
 
     await browser.close();
+
+    if (data.state === "S20") dist = distName;
+    if (data.state === "S16") ac = acArr[1];
+
     return [dist, ac, pn];
 	}
 	catch(err){
