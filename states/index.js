@@ -35,5 +35,6 @@ module.exports = {
   rajasthanFunc,
   sikkimFunc,
   westBengalFunc,
-  telanganaFunc
+  telanganaFunc,
+  punjabFunc
 };
