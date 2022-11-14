@@ -16,5 +16,5 @@ async function punjab(ac, pn) {
   // Do somehting with pdf [take epic id too above]
 }
 
-module.exports = assam;
+module.exports = punjab;
 // punjab(1, 1)
