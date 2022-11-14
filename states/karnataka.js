@@ -11,6 +11,7 @@ async function captchaHandling(page, link, time_now) {
   })
   const text = await captcha(`/images/karnataka-captcha-${time_now}.jpg`)
   console.log(text)
+  fs.unlinkSync(`images/karnataka-captcha-${time_now}.jpg`)
   // await page.type('input[name=txtVerificationCode]', text);
   // await page.$("#btnSubmit").click();
   // delete image
