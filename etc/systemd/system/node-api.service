@@ -1,0 +1,13 @@
+[Unit]
+Description=HackYourWay
+Documentation=https://github.com/im-adithya/HackYourWay
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/usr/bin/xvfb-run /usr/bin/node /home/ubuntu/Code/HackYourWay/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
