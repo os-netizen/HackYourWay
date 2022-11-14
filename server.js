@@ -19,7 +19,8 @@ const {
   rajasthanFunc,
   sikkimFunc,
   westBengalFunc,
-  telanganaFunc
+  telanganaFunc,
+  punjabFunc
 } = require('./states')
 
 const app = express();
@@ -43,7 +44,7 @@ app.post('/api', async (req, res)=>{
     state,
     dist: district
   })
-  // "S01 S03 U02 S26 U03 U05 S05 S06 S10 S15 S16 S17 S18 S20 S21 S29 S25"
+  // "S01 S03 U02 S26 U03 U05 S05 S06 S10 S15 S16 S17 S18 S20 S21 S29 S25 S19"
   switch (state) {
     case "S01":
       await andhraFunc(dist, ac, pn);
@@ -107,6 +108,10 @@ app.post('/api', async (req, res)=>{
 
     case "S29":
       await telanganaFunc(dist, ac, pn);
+      break;
+
+    case "S19":
+      await punjabFunc(ac, pn);
       break;
 
     case "S25":

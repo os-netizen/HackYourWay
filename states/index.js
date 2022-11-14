@@ -15,8 +15,10 @@ const rajasthanFunc=require('./rajasthan')
 const sikkimFunc=require('./sikkim')
 const telanganaFunc=require('./telangana')
 const westBengalFunc=require('./westBengal')
+const punjabFunc=require('./punjab')
 
 module.exports = {
+  punjabFunc,
   andhraFunc,
   assamFunc,
   chandigarhFunc,
