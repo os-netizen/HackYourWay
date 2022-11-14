@@ -1,3 +1,4 @@
+const fs = require("fs");
 const captcha = require('../utils/captcha');
 const requestPauser = require('../utils/requestPauser');
 
@@ -11,6 +12,7 @@ async function captchaHandling(page, link, time_now){
   });
   const text = await captcha(`images/andhra-captcha-${time_now}.jpg`);
   console.log(text);
+  fs.unlinkSync(`images/andhra-captcha-${time_now}.jpg`)
   await Promise.all([
     page.type('input[name=txtVerificationCode]', text),
     page.locator("#btnSubmit").click(),
@@ -27,4 +29,5 @@ async function andhra(dist, ac, pn){
   // Do somehting with pdf [take epic id too above]
 }
 
+// andhra(15,106,141);
 module.exports = andhra;

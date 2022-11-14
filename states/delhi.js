@@ -1,3 +1,4 @@
+const fs = require("fs");
 const captcha = require('../tess');
 const requestPauser = require('../utils/requestPauser');
 
@@ -13,6 +14,7 @@ async function captchaHandling(page, link, time_now, obj){
   });
   const text = await captcha(`/images/delhi-captcha-${time_now}.jpg`);
   console.log(text);
+  fs.unlinkSync(`images/delhi-captcha-${time_now}.jpg`)
   // await page.type('input[name=txtVerificationCode]', text);
   // await page.$("#btnSubmit").click();
   // delete image
