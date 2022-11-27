@@ -412,7 +412,7 @@ state_code: U01, state_name: Andaman & Nicobar Islands
 state_code: U02, state_name: Chandigarh
 	1 CHANDIGARH
 
-state_code: U03, state_name: Dadra & Nagar Haveli and Daman & Diu
+state_code: U03, state_name: Daman
 	3 DADRA & NAGAR HAVELI
 	1 DAMAN
 	2 DIU
